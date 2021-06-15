@@ -1,17 +1,12 @@
 # coding: cp1251
 
-from time import perf_counter
 from loguru import logger
 import os
 
 import xml.etree.ElementTree as ElT
 
 import config
-
-
-HOME_DIR = "C:\\Projects\\Project_rewrite_XML\\vor\\xml"
-SAVE_PATH = "C:\\Projects\\Project_rewrite_XML\\vor\\xml_new"
-MAIL = "Tatyana@example.ru"
+from my_time import my_timer
 
 
 def get_path_name(path: str) -> None:
@@ -44,15 +39,10 @@ def counting_the_files(path: str) -> None:
     logger.info(f"Created {len(os.listdir(path))} files")
 
 
+@my_timer
 def main():
-    start = perf_counter()
-
     get_path_name(config.HOME_DIR)
-
     counting_the_files(config.SAVE_PATH)
-
-    stop = perf_counter() - start
-    logger.info(f"execution time {stop}")
 
 
 if __name__ == "__main__":
