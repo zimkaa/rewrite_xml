@@ -1,0 +1,8 @@
+setup.cfg
+
+.vscode/
+env/
+.env
+*.xml
+
+test/
