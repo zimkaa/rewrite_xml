@@ -16,7 +16,7 @@ def get_path_name(path: str) -> None:
     for element_name in os.listdir(path):
         path_name = os.path.join(path, element_name)
         if os.path.isdir(path_name):
-            path_name = get_path_name(path_name)
+            path_name = get_path_name(path_name)  # type: ignore
         else:
             cange_xml(path_name, element_name)
 
@@ -27,8 +27,8 @@ def cange_xml(path: str, file_name: str) -> None:
     """
     tree = ElT.parse(path)
     element = tree.getroot()[0][-2]
-    element.set("value", config.MAIL)
-    save_path = os.path.join(config.SAVE_PATH, file_name)
+    element.set("value", config.MAIL)  # type: ignore
+    save_path = os.path.join(config.SAVE_PATH, file_name)  # type: ignore
     tree.write(save_path, encoding="WINDOWS-1251")
 
 

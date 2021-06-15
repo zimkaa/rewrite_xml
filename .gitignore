@@ -1,6 +1,7 @@
 setup.cfg
 
 __pycache__/
+.mypy_cache/
 .vscode/
 env/
 .env
